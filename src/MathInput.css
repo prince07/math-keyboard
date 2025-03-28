@@ -1,0 +1,100 @@
+/* Reuse styles from MathKeyboard.css for: */
+/* .math-keyboard-container, .virtual-keyboard, .key-button, .shortcut-legend */
+
+/* Add styles specific to the MathQuill field if needed */
+.math-input-field-wrapper {
+    margin-bottom: 15px;
+    background-color: #fff; /* Ensure background for the field container */
+     border-radius: 4px; /* Optional: match other elements */
+  }
+  
+  /* Target the MathQuill editable field directly (use browser dev tools to find exact classes if needed) */
+  .mq-editable-field {
+     border: 1px solid #ccc; /* Example: ensure border visible */
+     padding: 8px 10px;
+  }
+  
+  /* Style the cursor */
+  .mq-cursor {
+      border-left: 1px solid black;
+      /* margin-left: -1px; */ /* Adjust if needed */
+  }
+  
+  /* Style the selection */
+  .mq-selection .mq-root-block {
+      background-color: #ACE; /* Light blue selection */
+  }
+  
+  /* Ensure fractions, roots etc., display inline-block */
+  .mq-fraction, .mq-sqrt-prefix, .mq-sqrt-stem {
+      display: inline-block;
+      vertical-align: middle;
+  }
+  
+  .output-display {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+  }
+  .output-display pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre-wrap; /* Wrap long LaTeX */
+    word-break: break-all;
+  }
+  
+  /* --- Reuse from previous example --- */
+  .math-keyboard-container {
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .virtual-keyboard {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Adjust columns as needed */
+    gap: 8px; /* Space between buttons */
+    margin-bottom: 15px;
+  }
+  
+  .key-button {
+    padding: 12px 8px;
+    font-size: 1.1em;
+    border: 1px solid #b0b0b0;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+  }
+  
+  .key-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .key-button:active {
+    background-color: #c0c0c0;
+    transform: scale(0.95);
+  }
+  
+  .key-button[style*="grid-column"] {
+      background-color: #f0f0f0; /* Slightly different bg for special keys */
+  }
+  
+  .shortcut-legend {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+  }
+  
+  .shortcut-legend ul { list-style: none; padding: 0; }
+  .shortcut-legend li { margin-bottom: 5px; }
+  .shortcut-legend code { background-color: #e0e0e0; padding: 2px 5px; border-radius: 3px; font-family: monospace; }

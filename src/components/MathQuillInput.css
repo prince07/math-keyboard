@@ -1,0 +1,209 @@
+/* === src/components/MathQuillInput.css === */
+
+/* Styles for the content wrapper INSIDE the modal */
+.math-keyboard-input-content {
+    /* No specific styles needed unless you want padding/margin inside the component */
+  }
+  
+  /* General instructions above the input */
+  .shortcut-instructions {
+    font-size: 0.9em;
+    color: #444;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .shortcut-instructions kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-family: monospace;
+    font-size: 0.85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+  }
+  /* Style for the example indicator in instructions */
+  .shortcut-indicator-example {
+      display: inline-block;
+      position: relative;
+      top: -0.5em; /* Adjust vertical position */
+      right: -0.1em;
+      font-size: 0.7em;
+      font-weight: bold;
+      padding: 1px 3px;
+      background-color: #e0e0e0;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      color: #333;
+      line-height: 1;
+  }
+  
+  /* Wrapper for the MathQuill input field */
+  .math-input-field-wrapper {
+    margin-bottom: 15px;
+    background-color: #fff; /* Ensure background */
+    border-radius: 4px;
+  }
+  
+  /* Target the MathQuill editable field itself */
+  .mq-editable-field {
+     border: 1px solid #ccc !important; /* Use !important if base styles interfere */
+     padding: 8px 10px;
+     font-size: 1.2em; /* Match size set in JS style prop */
+     min-height: 50px; /* Match size set in JS style prop */
+  }
+  
+  /* Style the cursor (basic) */
+  .mq-cursor {
+      border-left: 1px solid black;
+  }
+  
+  /* Style the selection (basic) */
+  .mq-selection .mq-root-block {
+      background-color: #ACE; /* Light blue selection */
+  }
+  
+  /* Ensure fractions, roots etc., display reasonably */
+  .mq-fraction, .mq-sqrt-prefix, .mq-sqrt-stem {
+      display: inline-block;
+      vertical-align: middle;
+  }
+  
+  
+  /* Container for the main action button (Insert) */
+  .action-button-container {
+      display: flex;
+      justify-content: flex-end; /* Align button to the right */
+      margin-top: 10px; /* Space above the button */
+      margin-bottom: 15px; /* Space below the button */
+  }
+  
+  /* Style the insert button */
+  .insert-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #28a745; /* Green color */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+  }
+  
+  .insert-button:hover {
+      background-color: #218838;
+  }
+  
+  .insert-button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+  }
+  
+  
+  /* Grid layout for the virtual keyboard */
+  .virtual-keyboard {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Adjust columns as needed */
+    gap: 6px; /* Slightly smaller gap */
+    margin-bottom: 10px; /* Space below keyboard */
+  }
+  
+  /* Styling for each key button */
+  .key-button {
+    position: relative; /* Needed for absolute positioning of indicator */
+    padding: 10px 6px; /* Adjust padding */
+    padding-top: 18px; /* Extra top padding for indicator */
+    font-size: 1.0em; /* Adjust font size */
+    border: 1px solid #b0b0b0;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    /* Prevent text selection on rapid clicks */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .key-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .key-button:active {
+    background-color: #c0c0c0;
+    transform: scale(0.95);
+  }
+  
+  /* Style wider buttons (like Bksp, Clear) */
+  .key-button[style*="grid-column"] {
+      background-color: #f0f0f0; /* Slightly different bg for special keys */
+  }
+  
+  
+  /* Style the shortcut key indicator on buttons */
+  .shortcut-indicator {
+    position: absolute;
+    top: 2px; /* Position near the top */
+    right: 3px; /* Position near the right */
+    font-size: 0.7em; /* Smaller font size */
+    font-weight: bold;
+    padding: 1px 3px;
+    background-color: #e8e8e8; /* Subtle background */
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    color: #444; /* Darker text */
+    line-height: 1; /* Prevent extra height */
+    z-index: 1;
+  }
+  
+  /* Optional: Styles for the detailed shortcut legend if you decide to keep it */
+  .shortcut-legend {
+    margin-top: 15px;
+    font-size: 0.85em;
+    color: #555;
+    border-top: 1px dashed #ccc;
+    padding-top: 10px;
+  }
+  
+  .shortcut-legend ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+  .shortcut-legend li {
+      margin-bottom: 4px;
+  }
+  .shortcut-legend code {
+      background-color: #e0e0e0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+  }
+  
+  /* Optional: Styles for output display if re-enabled for debugging */
+  .output-display {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+  }
+  .output-display strong {
+      display: block;
+      margin-bottom: 5px;
+  }
+  .output-display pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .output-display code {
+      color: #333;
+  }

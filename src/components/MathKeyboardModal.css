@@ -1,0 +1,145 @@
+/* === Existing styles for modal-overlay, modal-content, modal-close-button === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 0; /* Remove padding, handle inside */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh;
+    /* Let content handle scrolling */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack header, tabs, content */
+  }
+  
+  .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .modal-header h4 {
+      margin: 0;
+      font-size: 1.2em;
+  }
+  
+  .modal-close-button {
+    /* position: absolute; */ /* No longer absolute */
+    /* top: 10px; */
+    /* right: 15px; */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 5px;
+  }
+  .modal-close-button:hover {
+    color: #333;
+  }
+  
+  .modal-body {
+      padding: 20px;
+      overflow-y: auto; /* Allow body content to scroll */
+      flex-grow: 1; /* Take remaining space */
+  }
+  
+  
+  /* === NEW Styles for Tabs and History === */
+  
+  .modal-tabs {
+    display: flex;
+    border-bottom: 1px solid #dee2e6;
+    background-color: #f8f9fa; /* Light background for tab bar */
+    padding: 0 20px; /* Align with modal body padding */
+  }
+  
+  .tab-button {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid transparent; /* Space for active indicator */
+    margin-bottom: -1px; /* Overlap border */
+    font-size: 1em;
+    color: #495057;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .tab-button:hover {
+    border-bottom-color: #dee2e6;
+    color: #0056b3;
+  }
+  
+  .tab-button.active {
+    border-bottom-color: #007bff;
+    font-weight: bold;
+    color: #0056b3;
+  }
+  
+  .history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px; /* Limit height if many items */
+    overflow-y: auto;
+  }
+  
+  .history-item {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    word-break: break-all; /* Prevent long formulas from overflowing */
+    font-family: monospace; /* Often better for LaTeX */
+    font-size: 0.95em;
+  }
+  
+  .history-item:last-child {
+    border-bottom: none;
+  }
+  
+  .history-item:hover {
+    background-color: #f0f8ff; /* Light blue hover */
+  }
+  
+  .no-history {
+      text-align: center;
+      color: #6c757d;
+      padding: 20px;
+  }
+  
+  /* Ensure MathQuillInput styles are scoped or don't conflict */
+  .modal-body .math-keyboard-input-content {
+    /* Container inside MathQuillInput */
+  }
+  
+  /* --- Adjustments from previous modal styles --- */
+  /* .modal-content .math-keyboard-container { ... } */ /* No longer needed if MathQuillInput doesn't have this class */
+  /* .modal-content .math-input-field-wrapper { ... } */ /* Style directly in MathQuillInput.css */

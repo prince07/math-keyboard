@@ -1,0 +1,132 @@
+/* Basic App Layout */
+.App {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.App-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.answer-area {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative; /* For positioning the button */
+}
+
+.answer-area label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.answer-area textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding in width */
+  margin-bottom: 10px;
+}
+
+.open-keyboard-btn {
+  position: absolute; /* Position relative to answer-area */
+  top: 30px; /* Adjust as needed */
+  right: 5px; /* Adjust as needed */
+  padding: 5px 10px;
+  font-size: 1.2em; /* Make icon larger */
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  line-height: 1;
+}
+.open-keyboard-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Ensure MathQuillInput's action button container has spacing */
+.action-button-container {
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+    margin-top: 15px; /* Space above the button */
+    margin-bottom: 15px; /* Space below the button */
+}
+
+.insert-button { /* Style the insert button */
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #28a745; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.insert-button:hover {
+    background-color: #218838;
+}
+
+.insert-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.App { /* ... */ }
+.App-header { /* ... */ }
+.answer-area { /* ... */ }
+.answer-area label { /* ... */ }
+.answer-area textarea { /* ... */ }
+.open-keyboard-btn { /* ... */ }
+
+/* Wrapper for textarea + button */
+.input-wrapper {
+  position: relative; /* For positioning button inside */
+  margin-bottom: 20px; /* Space before rendered output */
+}
+
+/* === NEW Styles for Rendered Display === */
+.rendered-answer-display {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.rendered-answer-display label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.rendered-content {
+  border: 1px solid #f0f0f0; /* Subtle border */
+  padding: 15px;
+  background-color: #fdfdfd; /* Slightly off-white */
+  min-height: 100px; /* Give it some minimum height */
+  line-height: 1.6; /* Improve readability */
+  border-radius: 4px;
+}
+
+/* KaTeX Specific adjustments if needed */
+.rendered-content .katex-display {
+  /* Styles for block math ($$ $$) */
+  margin: 0.8em 0; /* Add some vertical spacing */
+  overflow-x: auto; /* Allow scrolling for very wide formulas */
+  overflow-y: hidden;
+}
+
+.rendered-content .katex {
+  /* Styles for inline math ($ $) */
+  font-size: 1.05em; /* Slightly larger inline math */
+}
+
+/* Style for error messages */
+.rendered-content span[style*="color: red"] {
+    background-color: #fff0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
